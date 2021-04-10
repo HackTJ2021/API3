@@ -6,8 +6,8 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 from .serializers import ImageRecognitionSerializer
 
-def index(request):
-    return HttpResponse("Hello World")
+# def index(request):
+#     return HttpResponse("Hello World")
 
 class ImageRecognition(APIView):
 
