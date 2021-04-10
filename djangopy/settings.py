@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.apps.AppConfig'
+    'app.apps.AppConfig',
+
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -80,10 +82,15 @@ WSGI_APPLICATION = 'djangopy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
+        # 'CLIENT': {
+        #     'host': os.environ["MONGO_URL"],
+        #     'username': os.environ["MONGOUSER"],
+        #     'password': os.environ["MONGOPASSWORD"],
+        # }
         'CLIENT': {
-            'host': os.environ["MONGO_URL"],
-            'username': os.environ["MONGOUSER"],
-            'password': os.environ["MONGOPASSWORD"],
+            'host': "mongodb://mongo:ebbOwcsNkIPdkQLtJyKC@containers-us-west-2.railway.app:5500",
+            'username': "mongo",
+            'password': "ebbOwcsNkIPdkQLtJyKC",
         }
     }
 }
