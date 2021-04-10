@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'pv!=2&zce^n^!#3x$h924bih+j39jaf8yyudse9a60*6do&lu2'
 DEBUG = True
 
-if 'SECRET_KEY' in os.environ:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    DEBUG = True
+# if 'SECRET_KEY' in os.environ:
+#     SECRET_KEY = os.environ['SECRET_KEY']
+#     DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
