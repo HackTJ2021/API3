@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'djangopy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+        'ENGINE': 'djongo',
+        'CLIENT': {
+            'host': os.environ["MONGO_URL"],
+            'username': os.environ["MONGOUSER"],
+            'password': os.environ["MONGOPASSWORD"],
+        }
     }
 }
 
