@@ -26,7 +26,7 @@ DEBUG = True
 
 if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ['SECRET_KEY']
-    DEBUG = False
+    DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
