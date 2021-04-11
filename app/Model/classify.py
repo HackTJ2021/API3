@@ -39,13 +39,10 @@ def classify(image_path):
         # sortierung; circle -> 0, plus -> 1, square -> 2, triangle -> 3; array return bsp [3 1 2 0] -> sortiert nach groesster uebereinstimmmung
 
         # output            
-        percentages = []
+        percentages = ""
         for node_id in top_k:
             human_string = label_lines[node_id]
             score = predictions[0][node_id]
-            temp = []
-            temp.append(human_string)
-            temp.append(score)
-            percentages.append(temp)
-        
-        return percentages 
+            percentages += str(human_string) + " " + str(score) + " "
+
+        return percentages.rstrip() 
