@@ -23,6 +23,7 @@ class ImageRecognition(APIView):
         if serializer.is_valid():    
             serializer.save()
             data = serializer.data
+            print(data)
             path = str(os.getcwd()) + "/static/media/" + str(data["file"][7:])
             percentages = []
             percentages = classify(path)
