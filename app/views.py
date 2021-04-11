@@ -26,6 +26,9 @@ class ImageRecognition(APIView):
             path = str(os.getcwd()) + "/static/media/" + str(data["file"][7:])
             percentages = []
             percentages = classify(path)
+            if(len(percentages) == 0):
+                percentages.append("notworking")
+            
             return Response(percentages, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
