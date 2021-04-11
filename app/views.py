@@ -6,6 +6,9 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 from .serializers import ImageRecognitionSerializer
 
+import os
+from .Model.classify import classify
+
 # def index(request):
 #     return HttpResponse("Hello World")
 
@@ -19,6 +22,10 @@ class ImageRecognition(APIView):
 
         if serializer.is_valid():    
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            data = serializer.data
+            path = str(os.getcwd()) + "\\static\\media\\" + str(data["file"][7:])
+            percentages = []
+            percentages = classify(path)
+            return Response(percentages, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
