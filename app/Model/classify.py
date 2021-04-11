@@ -14,11 +14,11 @@ def classify(image_path):
     #bilddatei readen
     image_data = tf.gfile.FastGFile(image_path, 'rb').read()
     # holt labels aus file in array 
-    label_lines = [line.rstrip() for line in tf.gfile.GFile(path + "\\app\\Model\\tf_files\\retrained_labels.txt")]
+    label_lines = [line.rstrip() for line in tf.gfile.GFile(path + "/app/Model/tf_files/retrained_labels.txt")]
     # !! labels befinden sich jeweils in eigenen lines -> keine aenderung in retrain.py noetig -> falsche darstellung im windows editor !!
                 
     # graph einlesen, wurde in train.sh -> call retrain.py trainiert
-    with tf.gfile.FastGFile(path + "\\app\\Model\\tf_files\\retrained_graph.pb", 'rb') as f:
+    with tf.gfile.FastGFile(path + "/app/Model/tf_files/retrained_graph.pb", 'rb') as f:
     
         graph_def = tf.GraphDef()	## The graph-graph_def is a saved copy of a TensorFlow graph; objektinitialisierung
         graph_def.ParseFromString(f.read())	#Parse serialized protocol buffer data into variable
